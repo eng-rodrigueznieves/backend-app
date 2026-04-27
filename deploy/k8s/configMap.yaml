@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: apps
+data:
+  APP_ENV: "dev"
+  APP_VERSION: "0.1.0"
+  DJANGO_ALLOWED_HOSTS: "*"
+---
+apiVersion: v1
+kind: secrets
+metadata:
+  name: backend-runtime-secrets
+  namespace: apps
+type: Opaque
+stringData:
+  DJANGO_SECRET_KEY: "dev-only-change-me"

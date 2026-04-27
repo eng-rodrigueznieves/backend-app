@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+  namespace: {{ .Release.Namespace }}
+data:
+  APP_ENV: {{ .Values.config.appEnv | quote }}
+  APP_VERSION: {{ .Values.config.appVersion | quote }}
+  DJANGO_ALLOWED_HOSTS: {{ .Values.config.djangoAllowedHosts | quote }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-secret
+  namespace: {{ .Release.Namespace }}
+type: Opaque
+stringData:
+  DJANGO_SECRET_KEY: {{ .Values.secret.djangoSecretKey | quote }}
