@@ -9,7 +9,7 @@ data:
   DJANGO_ALLOWED_HOSTS: "*"
 ---
 apiVersion: v1
-kind: Secrets
+kind: Secret
 metadata:
   name: backend-runtime-secrets
   namespace: apps
