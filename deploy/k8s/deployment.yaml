@@ -39,7 +39,7 @@ spec:
                   key: DJANGO_ALLOWED_HOSTS
             - name: DJANGO_SECRET_KEY
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: backend-runtime-secrets
                   key: DJANGO_SECRET_KEY
           readinessProbe:
